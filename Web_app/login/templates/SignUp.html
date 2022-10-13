@@ -1,0 +1,60 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+ <!-- Section: Design Block -->
+<section class="container justify-content-center align-items-center" style="background-color:rgb(29, 29, 29) ;">
+ 
+
+  <div class="container row justify-content-center align-items-center">
+    <div class="col-12 col-md-5 col-lg-6 col-xl-5">
+      {% comment %} <div class="col-lg-6 mb-5 mb-lg-0" style="z-index: 10">
+        <h1 class="my-5 display-5 fw-bold ls-tight" style="color: hsl(218, 81%, 95%)">
+          The best offer <br />
+          <span style="color: hsl(218, 81%, 75%)">for your business</span>
+        </h1>
+        <p class="mb-4 opacity-70" style="color: hsl(218, 81%, 85%)">
+          Lorem ipsum dolor, sit amet consectetur adipisicing elit.
+          Temporibus, expedita iusto veniam atque, magni tempora mollitia
+          dolorum consequatur nulla, neque debitis eos reprehenderit quasi
+          ab ipsum nisi dolorem modi. Quos?
+        </p>
+      </div> {% endcomment %}
+
+      <div class="card-body p-5 text-center">
+          
+      {% load crispy_forms_tags %}        
+        <div class="card bg-dark text-white">
+          <div class="card-body px-4 py-5 px-md-5">
+            <form method= "POST" action="">
+              {% csrf_token %}
+              
+              <!-- 2 column grid layout with text inputs for the first and last names -->
+              <div class="row d-flex justify-content-center">
+                <div >
+                  
+                  {{ form|crispy }}
+
+                   
+                  
+                </div>
+            
+              <!-- Submit button -->
+              <div class="d-flex justify-content-center">
+              <button type="submit" class="btn btn-dark btn-block mb-4">
+                Sign up
+              </button>
+              </div>
+              <!-- Register buttons -->
+              <div>
+                <p class="mb-0">Already have an account? <a href="{% url 'loginpage' %}" >LOG IN</a>
+                </p>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+{% endblock %}
